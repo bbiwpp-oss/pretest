@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบทดสอบก่อนเรียน</title>
+
+    <link rel="stylesheet" href="login.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- พื้นหลัง -->
+    <img src="images/background.png" class="background" alt="">
+
+    <!-- หัวข้อ -->
+    <div class="title-box">
+
+        <img src="images/title_board.png" class="title-image" alt="">
+
+        <div class="login-title">
+            แบบทดสอบ<br>
+            ก่อนเรียน
+        </div>
+
+    </div>
+
+    <!-- กล่องข้อมูล -->
+    <div class="login-box">
+
+        <label>เลขที่</label>
+
+        <input
+            type="number"
+            id="studentNo"
+            placeholder="กรอกเลขที่">
+
+        <label>ชั้นเรียน</label>
+
+        <select id="studentClass">
+
+            <option value="">เลือกชั้นเรียน</option>
+
+            <option>ป.3/1</option>
+            <option>ป.3/2</option>
+            <option>ป.3/3</option>
+            <option>ป.3/4</option>
+
+        </select>
+
+    </div>
+
+    <!-- ปุ่มเริ่ม -->
+    <button class="start-btn" onclick="startQuiz()">
+
+        <img src="images/btn_start.png" alt="">
+
+        <span>เริ่มทำแบบทดสอบ</span>
+
+    </button>
+
+    <script>
+
+        function startQuiz(){
+
+            const no=document.getElementById("studentNo").value;
+            const room=document.getElementById("studentClass").value;
+
+            if(no==="" || room===""){
+
+                alert("กรุณากรอกเลขที่และเลือกชั้นเรียน");
+
+                return;
+            }
+
+            localStorage.setItem("studentNo",no);
+            localStorage.setItem("studentClass",room);
+
+            location.href="quiz.html";
+
+        }
+
+    </script>
+
+</body>
+</html>
